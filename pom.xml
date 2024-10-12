@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.srllc.bountiply</groupId>
-	<artifactId>factoryPattern</artifactId>
+	<artifactId>designPattern</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>factoryPattern</name>
+	<name>designPattern</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
