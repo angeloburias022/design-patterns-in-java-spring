@@ -1,9 +1,9 @@
-package com.srllc.bountiply.factoryPattern.service;
+package com.srllc.bountiply.designPattern.service;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import com.srllc.bountiply.factoryPattern.vendors.PaymentVendor;
+import com.srllc.bountiply.designPattern.vendors.PaymentVendor;
 
 public abstract class PaymentService {
     private final RestTemplate restTemplate = new RestTemplate();

@@ -1,4 +1,4 @@
-package com.srllc.bountiply.factoryPattern;
+package com.srllc.bountiply.designPattern;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

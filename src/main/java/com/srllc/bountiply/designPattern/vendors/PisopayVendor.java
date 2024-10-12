@@ -1,4 +1,4 @@
-package com.srllc.bountiply.factoryPattern.vendors;
+package com.srllc.bountiply.designPattern.vendors;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;

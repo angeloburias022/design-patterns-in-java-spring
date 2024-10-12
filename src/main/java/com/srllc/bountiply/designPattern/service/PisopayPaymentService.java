@@ -1,6 +1,6 @@
-package com.srllc.bountiply.factoryPattern.service;
+package com.srllc.bountiply.designPattern.service;
 
-import com.srllc.bountiply.factoryPattern.vendors.PaymentVendor;
+import com.srllc.bountiply.designPattern.vendors.PaymentVendor;
 
 public class PisopayPaymentService extends PaymentService{
 
