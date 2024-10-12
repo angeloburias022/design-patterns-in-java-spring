@@ -1,4 +1,4 @@
-package com.srllc.bountiply.factoryPattern;
+package com.srllc.bountiply.designPattern;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
