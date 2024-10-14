@@ -6,8 +6,8 @@ import com.srllc.bountiply.designPattern.service.PisopayPaymentService;
 public class TestApp {
     public static void main(String[] args) {
         // Process a Pisopay payment
-        PaymentService payPalService = new PisopayPaymentService();
-        payPalService.processPayment();
+        PaymentService pisopayService = new PisopayPaymentService();
+        pisopayService.processPayment();
 
    
     }

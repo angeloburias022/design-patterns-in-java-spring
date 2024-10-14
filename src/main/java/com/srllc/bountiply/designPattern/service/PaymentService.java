@@ -3,23 +3,25 @@ package com.srllc.bountiply.designPattern.service;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import com.srllc.bountiply.designPattern.service.model.HttpModel;
 import com.srllc.bountiply.designPattern.vendors.PaymentVendor;
 
 public abstract class PaymentService {
-    private final RestTemplate restTemplate = new RestTemplate();
+    
+    private final RestTemplate restTemplate = new RestTemplate(); // for clean up 
 
     public abstract PaymentVendor createVendor();
 
     public void processPayment() {
         PaymentVendor vendor = createVendor();
-
+        HttpModel model = vendor.prepareModel();
         try {
             System.out.println("Sending payment to " + vendor.getHostName());
             System.out.println("Using HTTP Method: " + vendor.getHttpMethod());
             System.out.println("With Request Body: " + vendor.getRequestBody());
 
             ResponseEntity<String> response = restTemplate.exchange(
-                vendor.getHostName(),
+                model.getHostName(),
                 vendor.getHttpMethod().equalsIgnoreCase("POST") ?
                     org.springframework.http.HttpMethod.POST : org.springframework.http.HttpMethod.GET,
                 vendor.getHttpEntity(),

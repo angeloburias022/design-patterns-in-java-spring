@@ -1,65 +1,32 @@
 package com.srllc.bountiply.designPattern.vendors;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.ResponseEntity;
-
-import java.util.Map;
+import com.srllc.bountiply.designPattern.service.model.HttpModel;
 
 public class PisopayVendor implements PaymentVendor {
-    private String hostName;
-    private String httpMethod;
-    private HttpEntity httpEntity;
-    private String requestBody;
 
+    // produce a http model
+    // add all logic here for the prepare model for this vendor (PISOPAY)
+    // call secrets manager here per vendor 
+    // for the meantime: 1 CONST for pisopay_vendor to retrieve DATA FROM secrets manager 
+    // mock credential data from aws secret manager 
+    // build http model 
+
+    private final static String PISOPAY = "pisopay_vendor"; // secrets_name
     @Override
-    public void setRequestEntity(Map<String, String> headerMap) {
-        // Pisopay-specific headers
-        this.httpEntity = new HttpEntity<>(headerMap);
+    public HttpModel prepareModel() {
+        HttpModel model = new HttpModel();
+        // model.setHostName(getHostName());
+        return model;
+    }
+    
+    private String getHostName() {
+        return "http://localhost:8080";
+    }
+  
+    public static void main() {
+        // run the app here 
+        // the http model implement 
     }
 
-    @Override
-    public void setHttpMethod(String method) {
-        this.httpMethod = method;
-    }
 
-    @Override
-    public void setTargetHostName(String targetHostName) {
-        this.hostName = targetHostName;
-    }
-
-    @Override
-    public void setRequestBody(String requestBody) {
-        this.requestBody = requestBody;
-    }
-
-    @Override
-    public HttpEntity getHttpEntity() {
-        return this.httpEntity;
-    }
-
-    @Override
-    public String getHttpMethod() {
-        return this.httpMethod;
-    }
-
-    @Override
-    public String getHostName() {
-        return this.hostName;
-    }
-
-    @Override
-    public String getRequestBody() {
-        return this.requestBody;
-    }
-
-    @Override
-    public void handleResponse(ResponseEntity<?> response) {
-        if (response.getStatusCode().is2xxSuccessful()) {
-            System.out.println("Pisopay Payment Success!");
-            System.out.println("Response: " + response.getBody()); // Assuming JSON response for Pisopay
-            // Add logic for parsing the JSON and extracting relevant fields
-        } else {
-            System.out.println("Stripe Payment Failed: " + response.getStatusCode());
-        }
-    }
 }
